@@ -1,0 +1,15 @@
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
+batlogger\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+batlogger\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+batlogger\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+batlogger\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+batlogger\queue.o: ../Core/Inc/FreeRTOSConfig.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+batlogger\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h

@@ -1,0 +1,13 @@
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
+batlogger\heap_4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+batlogger\heap_4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+batlogger\heap_4.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+batlogger\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+batlogger\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
