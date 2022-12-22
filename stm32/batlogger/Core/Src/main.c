@@ -767,7 +767,7 @@ void StartDispTask(void const * argument)
 		sprintf(msg3, "TC: %06.02f degC", TCtemp);
 		sprintf(msg2, "Tamb %dC RH %d%%  ", (uint8_t)ambT, (uint8_t)ambRH);
 		sprintf(msg1, "V %07.3f V", Volt);
-		sprintf(msg0, "I %07.1f mA%d%d%d", Curr, state,SDst,REC);
+		sprintf(msg0, "I %06.2f A%d%d%d", Curr, state,SDst,REC);
 		
 		
 		ST7920_SendString(3,0, msg3);
@@ -812,11 +812,10 @@ void StartADCTask(void const * argument)
   for(;;)
   {	
 		adc[0] = ADS1115_Read(0);
-		osDelay(100);		
-		adc[1] = ADS1115_Read(1);
-		osDelay(100);
-		adc[2] = ADS1115_Read(2);
-    osDelay(500);
+		
+		adc[1] =  ADS1115_Read(1);		
+		adc[2] =  ADS1115_Read(2);
+		osDelay(500);
   }
   /* USER CODE END StartADCTask */
 }
@@ -867,11 +866,11 @@ void StartSDCTask(void const * argument)
 ////		//f_puts(SDMSG,&fil);
 //		f_close(&fil);
 //		f_mount(NULL, "", 0);
-		sprintf(SDMSG, "%07.3f, %07.1f, %02.0d, %02.0d, %06.02f", Volt, Curr, (uint8_t)ambT, (uint8_t)ambRH, TCtemp);
+		sprintf(SDMSG, "%07.3f, %06.2f, %02.0d, %02.0d, %06.02f", Volt, Curr, (uint8_t)ambT, (uint8_t)ambRH, TCtemp);
 		sprintf(&SDMSG[63],"\n");
 		if (REC) {
-			CDC_Transmit_FS(&SDMSG[0], sizeof(SDMSG));
-			HAL_UART_Transmit(&huart2, &SDMSG[0], sizeof(SDMSG), 100);
+			CDC_Transmit_FS((unsigned char*)&SDMSG[0], sizeof(SDMSG));
+			HAL_UART_Transmit(&huart2,(unsigned char*) &SDMSG[0], sizeof(SDMSG), 100);
 		}
     osDelay(1000);
   }
@@ -892,7 +891,7 @@ void StartCalcTask(void const * argument)
   for(;;)
   {	
 		Volt = adc[1] * (1100+200) / 200 ;
-		Curr = (adc[2]/2-adc[0])*10000;
+		Curr = (adc[0]-adc[2]/2)*10 ;
     osDelay(500);
   }
   /* USER CODE END StartCalcTask */

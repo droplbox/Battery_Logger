@@ -62,7 +62,7 @@ uint16_t ADS1115_ReadADC(uint8_t channel) {
 	uint8_t data[2] = {0};
 
 	register_data = ADS1115_COMP_QUE;						// 11  : Disable comparator and set ALERT/RDY pin to high-impedance (default)
-	register_data |= ADS1115_DR_2;							// 100 : 128 SPS (default)
+	register_data |= ADS1115_DR;							// 100 : 128 SPS (default)
 	register_data |= ADS1115_MODE;							// 1   : Single-shot mode or power-down state (default)
 	register_data &= ~ADS1115_PGA;							// 000 : FSR = ±6.144 V (187.5μV)
 	switch (channel) {
@@ -99,5 +99,5 @@ uint16_t ADS1115_ReadADC(uint8_t channel) {
 
 float ADS1115_Read(uint8_t channel) {
 
-	return (float)ADS1115_ReadADC(channel) * 187.5 / 1000000.0;		// FSR = ±6.144 V (187.5μV)
+	return (float)ADS1115_ReadADC(channel) * 0.0001875;		// FSR = ±6.144 V (187.5μV)
 }
