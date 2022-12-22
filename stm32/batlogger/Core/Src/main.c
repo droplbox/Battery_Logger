@@ -765,9 +765,9 @@ void StartDispTask(void const * argument)
   {	
 		
 		sprintf(msg3, "TC: %06.02f degC", TCtemp);
-		sprintf(msg2, "Tamb %dC RH %d%%  ", (uint8_t)ambT, (uint8_t)ambRH);
-		sprintf(msg1, "V %07.3f V", Volt);
-		sprintf(msg0, "I %06.2f A%d%d%d", Curr, state,SDst,REC);
+		sprintf(msg2, "Tamb %dC RH %d%%", (uint8_t)ambT, (uint8_t)ambRH);
+		sprintf(msg1, "V %06.3f V    ", Volt);
+		sprintf(msg0, "I %06.3f A    ", Curr);
 		
 		
 		ST7920_SendString(3,0, msg3);
@@ -891,7 +891,7 @@ void StartCalcTask(void const * argument)
   for(;;)
   {	
 		Volt = adc[1] * (1100+200) / 200 ;
-		Curr = (adc[0]-adc[2]/2)*10 ;
+		Curr = (adc[0]-adc[2]/2)*10+0.025 ;
     osDelay(500);
   }
   /* USER CODE END StartCalcTask */
