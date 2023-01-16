@@ -89,10 +89,10 @@ uint8_t SDst = SDErr;
 char SDMSG[64];
 bool state = true;
 bool REC = false;
-char msg3[16];
-char msg2[16];
-char msg1[16];
-char msg0[16];
+char msg3[24];
+char msg2[24];
+char msg1[24];
+char msg0[24];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -206,7 +206,7 @@ int main(void)
   LedTaskHandle = osThreadCreate(osThread(LedTask), NULL);
 
   /* definition and creation of DispTask */
-  osThreadDef(DispTask, StartDispTask, osPriorityLow, 0, 128);
+  osThreadDef(DispTask, StartDispTask, osPriorityLow, 0, 256);
   DispTaskHandle = osThreadCreate(osThread(DispTask), NULL);
 
   /* definition and creation of TCTask */
@@ -891,7 +891,7 @@ void StartCalcTask(void const * argument)
   for(;;)
   {	
 		Volt = adc[1] * (1100+200) / 200 ;
-		Curr = (adc[0]-adc[2]/2)*10+0.025 ;
+		Curr = (adc[0]-adc[2]/2)*10;
     osDelay(500);
   }
   /* USER CODE END StartCalcTask */
